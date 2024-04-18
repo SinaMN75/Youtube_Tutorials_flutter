@@ -2,23 +2,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using WebApplication1.Entities;
+using WebApplication1.Models;
+using WebApplication1.Repositories;
 
 namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("api/products")]
-public class ProductsController(AppDbContext dbContext) : ControllerBase {
+public class ProductsController(AppDbContext dbContext, IProductRepository productRepository) : ControllerBase {
 
 	[HttpPost]
-	public async Task<ActionResult<ProductEntity>> Create(ProductEntity dto) {
-		EntityEntry<ProductEntity> product = await dbContext.AddAsync(dto);
-		await dbContext.SaveChangesAsync();
-		return Ok(product.Entity);
+	public async Task<ActionResult<ProductReadDto>> Create(ProductCreateDto dto) {
+		GenericResponse<ProductReadDto> response = await productRepository.Create(dto);
+		return StatusCode(response.StatusCode, response);
 	}
 
 	[HttpGet]
 	public ActionResult<IEnumerable<ProductEntity>> Read() {
-		return dbContext.Products;
+		return Ok(dbContext.Products.AsNoTracking());
 	}
 
 	[HttpGet("{id:guid}")]
