@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample/contacts/contact.dart';
-import 'package:sample/navigator/navigator.dart';
 
 void main() {
   runApp(const MyApp());
