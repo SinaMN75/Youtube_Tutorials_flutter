@@ -13,6 +13,8 @@ dependencies:
   get: ^4.6.6
   flutter_contacts: ^1.1.7+1
   flutter_map: ^6.1.0
+  get_storage: ^2.1.1
+  location: ^6.0.2
 
 
 
