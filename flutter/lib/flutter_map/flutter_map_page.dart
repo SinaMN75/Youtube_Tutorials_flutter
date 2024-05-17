@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FlutterMapPage extends StatefulWidget {
   const FlutterMapPage({super.key});
@@ -79,7 +80,7 @@ class _FlutterMapPageState extends State<FlutterMapPage> {
                   print(mapController.camera.visibleBounds.center);
                 },
                 initialCenter: LatLng(35.592781, 51.351981),
-                initialZoom: 2,
+                initialZoom: 10,
                 onTap: (TapPosition tapPosition, LatLng latlng) {
                   print(latlng);
                   mapController.move(latlng, 10);
@@ -107,9 +108,48 @@ class _FlutterMapPageState extends State<FlutterMapPage> {
                       },
                     ),
                   ),
-                  Marker(point: LatLng(36, 55), child: FlutterLogo()),
-                  Marker(point: LatLng(40, 55), child: FlutterLogo()),
-                  Marker(point: LatLng(35, 56), child: FlutterLogo()),
+                  Marker(
+                    point: LatLng(35.640485, 51.172379),
+                    child: GestureDetector(
+                      child: FlutterLogo(),
+                      onTap: () async {
+                        await launchUrl(
+                          Uri(
+                            scheme: "geo",
+                            queryParameters: {"q": "35.640485, 51.172379"},
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  Marker(
+                    point: LatLng(35.682168, 51.394180),
+                    child: GestureDetector(
+                      child: FlutterLogo(),
+                      onTap: () async {
+                        await launchUrl(
+                          Uri(
+                            scheme: "geo",
+                            queryParameters: {"q": "35.682168, 51.394180"},
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  Marker(
+                    point: LatLng(35.774446, 51.489512),
+                    child: GestureDetector(
+                      child: FlutterLogo(),
+                      onTap: () async {
+                        await launchUrl(
+                          Uri(
+                            scheme: "geo",
+                            queryParameters: {"q": "35.774446, 51.489512"},
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   Marker(
                     point: LatLng(_locationData?.latitude ?? 0, _locationData?.longitude ?? 0),
                     child: Icon(Icons.my_location, size: 40, color: Colors.blue),
