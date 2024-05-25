@@ -20,6 +20,10 @@ dependencies:
   path_provider: ^2.0.0
   url_launcher: ^6.2.6
 
+  appcheck: ^1.1.0
+  safe_device: ^1.1.6
+  screen_protector: ^1.4.2
+
 
 
 dev_dependencies:
