@@ -1,6 +1,15 @@
 ﻿services:
   webapplication1:
-    image: webapplication1
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: webApplication1
+    build: .
+    ports:
+      - "8080:80"
+      - "8081:443"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "https://+:443;http://+:80"
+      ASPNETCORE_Kestrel__Certificates__Default__Password: "123456789"
+      ASPNETCORE_Kestrel__Certificates__Default__Path: "/https/WebApplication1.pfx"
+    volumes:
+      - ~/.aspnet/https:/https:ro
+      - ./WebApplication1/wwwroot:/app/wwwroot
