@@ -3,7 +3,6 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
 using WebApplication1.Entities;
 
@@ -33,7 +32,7 @@ public class UserController(AppDbContext dbContext, HttpContextAccessor accessor
 	[HttpGet("GetProfile")]
 	[Authorize]
 	public ActionResult<UserReadDto> ReadProfile() {
-		
+		return Ok();
 	}
 
 	[HttpPost("register")]
