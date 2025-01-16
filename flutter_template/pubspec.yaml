@@ -1,0 +1,56 @@
+name: sample_project
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.1.2+112
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+#  flutter clean && flutter build apk --target-platform android-arm64,android-arm --release
+#  flutter clean && flutter build web --release
+
+#  flutter pub global activate rename
+#  flutter pub global run rename setBundleId --value com.example.app
+#  flutter pub global run rename setAppName --value "App_NAME"
+#  flutter pub run flutter_launcher_icons:main
+dependencies:
+  flutter:
+    sdk: flutter
+
+  u: ^1.0.7
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^1.0.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "lib/assets/images/logo_launcher.png"
+  min_sdk_android: 21
+  ios:
+    generate: true
+    image_path: "lib/assets/images/logo_launcher.png"
+    background_color: "#000000"
+    theme_color: "#hexcode"
+  web:
+    generate: true
+    image_path: "lib/assets/images/logo_launcher.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "lib/assets/images/logo_launcher.png"
+    icon_size: 48
+  macos:
+    generate: true
+    image_path: "lib/assets/images/logo_launcher.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/assets/
+    - lib/assets/images/
+    - lib/assets/icons/
+
+flutter_intl:
+  enabled: true

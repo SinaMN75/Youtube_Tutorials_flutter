@@ -1,0 +1,7 @@
+{
+  "login": "Login",
+  "password": "Password",
+  "username": "UserName",
+  "error": "Error",
+  "emptyList": "Empty List"
+}
